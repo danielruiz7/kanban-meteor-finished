@@ -1,0 +1,29 @@
+<div class="container-fluid h-100 bg-secondary">
+  <div class="row h-100">
+
+    <div class="col p-0">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand mr-auto"
+          href="#">Kanban</a>
+
+        <span class="mr-4" *ngIf="us.user">{{us.user.username}}</span>
+
+        <button class="btn btn-sm btn-dark"
+          (click)="logout()">
+          Logout
+        </button>
+
+      </nav>
+
+      <kanban-board [lists]="lists"
+        [tasks]="tasks"
+        (onAddList)="addList($event)"
+        (onRemoveList)="removeList($event)"
+        (onAddTask)="addTask($event)"
+        (onRemoveTask)="removeTask($event)"></kanban-board>
+
+    </div>
+
+  </div>
+
+</div>

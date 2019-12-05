@@ -1,0 +1,110 @@
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+
+    <div class="col"></div>
+
+    <div class="col-sm-8 col-lg-6 col-12">
+
+      <h4 class="text-center">Kanban Board</h4>
+
+      <div class="card">
+
+        <div class="card-body">
+          <h5 class="card-title">
+            <ng-container *ngIf="signingUp">Sign up</ng-container>
+            <ng-container *ngIf="!signingUp">Login</ng-container>
+          </h5>
+
+          <form (ngSubmit)="login()" autocomplete="off">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-user fa-fw"></i>
+                  </span>
+                </div>
+                <input type="username"
+                  class="form-control"
+                  placeholder="Username"
+                  name="username"
+                  #usernameInput
+                  [(ngModel)]="username"
+                  (keydown)="errorMsg = undefined" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-lock fa-fw"></i>
+                  </span>
+                </div>
+                <input type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  name="password"
+                  #passwordInput
+                  [(ngModel)]="password"
+                  (keydown)="errorMsg = undefined"
+                  [class.is-invalid]="errorMsg && !signingUp" />
+                <div class="invalid-feedback"
+                  *ngIf="errorMsg && !signingUp">
+                  {{errorMsg}}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group"
+              *ngIf="signingUp">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-lock fa-fw"></i>
+                  </span>
+                </div>
+                <input type="password"
+                  class="form-control"
+                  placeholder="Repeat password"
+                  name="repeat"
+                  #repeatInput
+                  [(ngModel)]="repeat"
+                  [class.is-invalid]="errorMsg" />
+                <div class="invalid-feedback"
+                  *ngIf="errorMsg">
+                  {{errorMsg}}
+                </div>
+              </div>
+            </div>
+
+            <button type="submit"
+              *ngIf="!signingUp"
+              class="btn btn-primary btn-lg btn-block">Login</button>
+            <button type="submit"
+              *ngIf="signingUp"
+              class="btn btn-secondary btn-lg btn-block">Sign up</button>
+
+            <button *ngIf="!signingUp"
+              type="button"
+              class="btn btn-link"
+              (click)="signingUp = true">
+              sign up
+            </button>
+            <button *ngIf="signingUp"
+              type="button"
+              class="btn btn-link"
+              (click)="signingUp = false">
+              login
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col"></div>
+
+  </div>
+</div>

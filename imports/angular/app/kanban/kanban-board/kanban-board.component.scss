@@ -1,0 +1,22 @@
+.board {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  height: calc(100% - 56px);
+}
+
+.list {
+  flex: 0 0 auto;
+  margin: 10px;
+  width: 350px;
+  height: calc(100% - 20px);
+  max-height: calc(100vh - 76px);
+  overflow-y: auto;
+  display: inline-block;
+}
+
+.new-list {
+  width: 350px;
+  display: inline-block;
+  position: relative;
+}

@@ -1,0 +1,37 @@
+<div class="board">
+
+  <div *ngFor="let list of lists"
+    class="card list">
+    <div class="card-body">
+      <a role="button"
+        href="#"
+        class="text-danger float-right"
+        (click)="removeList(list._id)">
+        <i class="far fa-trash"></i>
+      </a>
+      <h5 class="card-title text-center">
+        {{list.name}}
+      </h5>
+
+      <tasks-list [list]="list"
+        [tasks]="tasksByList[list._id]"
+        (onAddTask)="onAddTask.emit($event)"
+        (onRemoveTask)="onRemoveTask.emit($event)"></tasks-list>
+
+    </div>
+  </div>
+
+  <div class="list">
+    <form autocomplete="off">
+      <div class="form-group">
+        <input type="text"
+          class="form-control"
+          placeholder="Add new list..."
+          name="newListName"
+          #newListNameInput
+          (keydown.enter)="addList()"
+          [(ngModel)]="newListName" />
+      </div>
+    </form>
+  </div>
+</div>

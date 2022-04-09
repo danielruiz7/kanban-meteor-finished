@@ -24,7 +24,7 @@
     "imports": "^1.0.0",
     "meteor-node-stubs": "^0.4.1",
     "meteor-rxjs": "^0.4.14",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.3",
     "simpl-schema": "^1.5.6",
